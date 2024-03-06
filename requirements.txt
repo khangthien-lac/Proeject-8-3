@@ -3,3 +3,4 @@ numpy
 face_recognition
 os
 Pillow
+streamlit
