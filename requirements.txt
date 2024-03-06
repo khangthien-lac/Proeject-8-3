@@ -1,8 +1,6 @@
 opencv-python
 numpy
-dlib>=19.3.0
 dlib-bin
 Pillow
 streamlit
 face_recognition
-face_recognition_models
