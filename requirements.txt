@@ -3,4 +3,5 @@ numpy
 dlib-bin
 Pillow
 streamlit
+face_recognition
 face_recognition_models
