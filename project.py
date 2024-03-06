@@ -4,7 +4,8 @@ import face_recognition
 import os
 import streamlit as st
 from PIL import ImageGrab
- 
+
+st.title('Demo web')
 path = '.\BanHoc'
 images = []
 classNames = []
@@ -25,7 +26,7 @@ def findEncodings(images):
  
 encodeListKnown = findEncodings(images)
  
-cap = cv2.VideoCapture(0)
+cap = st.camera_input('Take a picture')
  
 while True:
     success, img = cap.read()
@@ -57,3 +58,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+st.write(f'{path}')
