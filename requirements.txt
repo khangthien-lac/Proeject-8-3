@@ -1,7 +1,5 @@
 opencv-python
-pip
 numpy
-dlib
 face-recognition
 Pillow
 streamlit
