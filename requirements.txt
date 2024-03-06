@@ -1,5 +1,6 @@
 opencv-python
 numpy
+dlib>=19.3.0
 dlib-bin
 Pillow
 streamlit
