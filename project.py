@@ -26,9 +26,10 @@ def findEncodings(images):
  
 encodeListKnown = findEncodings(images)
 
-run = st.checkbox('Run')
-FRAME_WINDOW = st.image([])
+running = st.checkbox('Run')
 cap = cv2.VideoCapture(0)
+FRAME_WINDOWS = st.image([])
+
 
 def main(classNames,Run,FRAME_WINDOW):
     while Run:
@@ -52,14 +53,12 @@ def main(classNames,Run,FRAME_WINDOW):
                 cv2.rectangle(img,(x1,y1),(x2,y2),(0,255,0),2)
                 cv2.rectangle(img,(x1,y2-35),(x2,y2),(0,255,0),cv2.FILLED)
                 cv2.putText(img,name,(x1+6,y2-6),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),2)
-    
+                st.write(name)
         cv2.imshow('Webcam',img)
         # c = cv2.waitKey(1)
         # if c == ord('q'): 
         #     break
-    else: 
-        st.write('Stopped')
 
-main(classNames)
+main(classNames,Run = running, FRAME_WINDOW = FRAME_WINDOWS)
 cap.release()
 cv2.destroyAllWindows()
