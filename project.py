@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import face_recognition
 import os
-from datetime import datetime
 from PIL import ImageGrab
  
 path = 'D:\Bo\ipynb\8-3\Project 8\BanHoc'
