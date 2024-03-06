@@ -23,26 +23,7 @@ def findEncodings(images):
         encodeList.append(encode)
     return encodeList
  
-# def markAttendance(name):
-# with open('Attendance.csv','r+') as f:
-# myDataList = f.readlines()
-# nameList = []
-# for line in myDataList:
-# entry = line.split(',')
-# nameList.append(entry[0])
-# if name not in nameList:
-# now = datetime.now()
-# dtString = now.strftime('%H:%M:%S')
-# f.writelines(f'n{name},{dtString}')
- 
-#### FOR CAPTURING SCREEN RATHER THAN WEBCAM
-# def captureScreen(bbox=(300,300,690+300,530+300)):
-#     capScr = np.array(ImageGrab.grab(bbox))
-#     capScr = cv2.cvtColor(capScr, cv2.COLOR_RGB2BGR)
-#     return capScr
- 
 encodeListKnown = findEncodings(images)
-# print('Encoding Complete')
  
 cap = cv2.VideoCapture(0)
  
@@ -58,7 +39,6 @@ while True:
     for encodeFace,faceLoc in zip(encodesCurFrame,facesCurFrame):
         matches = face_recognition.compare_faces(encodeListKnown,encodeFace)
         faceDis = face_recognition.face_distance(encodeListKnown,encodeFace)
-        #print(faceDis)
         matchIndex = np.argmin(faceDis)
         
         if matches[matchIndex]:
@@ -69,7 +49,6 @@ while True:
             cv2.rectangle(img,(x1,y1),(x2,y2),(0,255,0),2)
             cv2.rectangle(img,(x1,y2-35),(x2,y2),(0,255,0),cv2.FILLED)
             cv2.putText(img,name,(x1+6,y2-6),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),2)
-    # markAttendance(name)
  
     cv2.imshow('Webcam',img)
     c = cv2.waitKey(1)
